@@ -1,8 +1,8 @@
 import React,{useEffect} from 'react';
 import Container from './components/Container';
 import Header from './components/Header';
+import Content from './components/Content';
 import Footer from './components/Footer';
-import MainPage from './screens/MainPage';
 import {useStorage} from './hooks/useStorage';
 import {useDispatch, useSelector} from 'react-redux';
 import initialState from './context/store';
@@ -23,7 +23,7 @@ function App() {
     }, [dispatch,storageItem]);
 
     useEffect(() => {
-        if(state.links!==initialState.links)
+        if(state.products!==initialState.products)
             saveStorage(state);
     }, [state, saveStorage])
 
@@ -32,7 +32,7 @@ function App() {
     return (
         <Container>
             <Header />
-            <MainPage />
+            <Content />
             <Footer />
         </Container>
     );

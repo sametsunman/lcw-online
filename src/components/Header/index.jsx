@@ -1,25 +1,42 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { routes } from '../../routeConfig';
-import { Wrapper, Title, Menu } from './index.styles';
+import { Wrapper, Title, TopMenu, BottomMenu,MenuItem, FavoriteButton, BasketButton } from './index.styles';
 
 
 const Header = () => {
   return (
     <Wrapper>
-      <Link to="/">
+      <TopMenu>
         <Title>
-          <img src="/logo.png" alt="logo" />
+        <Link to="/">
+          <img src="/assets/logo.svg" alt="logo" />
+          </Link>
         </Title>
-        </Link>
-      <Menu>
-        {routes
-          .map((route) => (
-            <li>
-              <Link to={route.path}>{route.title}</Link>
-            </li>
-          ))}
-      </Menu>
+      <FavoriteButton>
+        Favorilerim
+      </FavoriteButton>
+      <BasketButton>
+        Sepetim
+      </BasketButton>
+      </TopMenu>
+
+      <BottomMenu>
+            <MenuItem>
+              Kadın
+            </MenuItem>
+            <MenuItem>
+              Erkek
+            </MenuItem>
+            <MenuItem>
+              Çocuk
+            </MenuItem>
+            <MenuItem>
+              Bebek
+            </MenuItem>
+            <MenuItem>
+              Lcw Home
+            </MenuItem>
+      </BottomMenu>
     </Wrapper>
   );
 };

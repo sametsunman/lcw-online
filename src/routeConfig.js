@@ -4,7 +4,7 @@ import MainPage from './screens/MainPage';
 export const routes = [{
         path: '/',
         exact: true,
-        component: () => < MainPage / > ,
+        component: () => < MainPage /> ,
         title: 'Anasayfa'
     }
 

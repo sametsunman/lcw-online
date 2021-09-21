@@ -3,20 +3,22 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   position: fixed;
   width: 100%;
-  height: 50px;
-  padding-top: 5px;
-  padding-left: 10px;
-  background-color: #003788;
+  height: 155px;
+  padding-top: 35px;
+  padding-inline: 44px;
+  background-color: #ffffff;
   z-index: 600;
+  box-shadow: 0px 9px 18px #00000029;
   & > a {
     text-decoration: none;
   }
 `;
 
-export const Menu = styled.ul`
-  position: absolute;
-    top: 15px;
-    right: 50px;
+export const TopMenu = styled.ul`
+  display: flex;
+`
+
+export const BottomMenu = styled.ul`
   list-style-type: none;
   & > li {
     display: inline;
@@ -43,7 +45,30 @@ export const Menu = styled.ul`
   }
 `;
 
-export const Title = styled.h4`
-  color: #fff;
-  margin-left: 40px;
-  text-decoration: none;`;
+export const Title = styled.div`
+  & > a > img {
+    width: 300px;
+    height: 42px;
+  }
+  `;
+
+  export const FavoriteButton = styled.div`
+    background: transparent url('assets/icons/favorite_border.svg') 50% 0% no-repeat padding-box;
+    margin-left: auto;
+    padding-top: 30px;
+  `;
+
+  export const BasketButton = styled.div`
+    background: transparent url('assets/icons/shopping_bag.svg') 50% 0% no-repeat padding-box;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-top: 30px;
+  `;
+
+  export const MenuItem = styled.li`
+  text-transform: uppercase;
+  padding-inline: 5px;
+  font-size: 26px;
+  color: #61666A;
+`;
+  

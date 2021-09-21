@@ -7,10 +7,10 @@ LC Waikiki Online Alışveriş Sitesi Klonu
 
 ### Kullanılan Teknolojiler
 
-- ReactJS
-- React Redux
-- Material UI
-- StyledComponent
+- ReactJS 17.0.2
+- React Redux 7.2.4
+- Material UI 5.0
+- StyledComponent 5.3
 
 
 ## Kurulum

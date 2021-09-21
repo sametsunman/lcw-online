@@ -12,8 +12,10 @@ export const Wrapper = styled.div`
 export const ButtonBar = styled.div`
   display: flex;
   justify-content: space-around;
+  align-items: center;
   background-color: #f2f2f2;
   height: 72px;
+  font-size: 18px;
   & > div > span {
     margin-right: 20px
   }
@@ -26,6 +28,8 @@ export const LinkBar = styled.div`
   height: 432px;
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  font-size: 20px;
   & > ul {
     list-style-type: none;
     margin-left: 110px;
@@ -37,6 +41,7 @@ export const LinkBar = styled.div`
   text-decoration: none;
   margin-top: 10px;
   margin-bottom: 10px; 
+  cursor: pointer;
   }
   & > ul > li.button {
     width: 446px;

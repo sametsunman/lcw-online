@@ -1,12 +1,26 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useSelector } from 'react-redux';
-import Grid from '@mui/material/Grid';
-import { Wrapper, Breadcrumb, Title, Menu, Products, ProductItem, Description, FavoriteButton } from './../styles/MainPage.styles';
+import { Grid, Popover, FormControlLabel, RadioGroup, Radio } from '@mui/material/';
+import { Wrapper, Breadcrumb, Title, Menu, Products } from './../styles/MainPage.styles';
+import Product from './../components/Common/Product'
 
 
 const MainPage = () => {
 
     const { products } = useSelector((state) => state);
+
+    const [sortingValue, setSortingValue] = useState("default");
+    const [sortingAnchorEl, setSortingAnchorEl] = React.useState(null);
+
+    const onClickSortingPop = (event) => {
+        setSortingAnchorEl(event.currentTarget);
+    };
+
+    const onCloseSortingPop = () => {
+        setSortingAnchorEl(null);
+    };
+
+    const sortingId = Boolean(sortingAnchorEl) ? 'sorting-popover' : undefined;
 
     return (
         <Wrapper>
@@ -18,33 +32,42 @@ const MainPage = () => {
             <Title>Erkek Sweatshirt Modelleri</Title>
             <Menu>
                 <span className='product-count'>1234 ürün</span>
-                <span className='sort'><img src='/assets/icons/sort.svg' alt='sorting' /> Sırala</span>
+                <span aria-describedby={sortingId} className='sort' onClick={onClickSortingPop}>
+                    <img src='/assets/icons/sort.svg' alt='sorting' /> Sırala
+                </span>
+                <Popover
+                    id={sortingId}
+                    open={Boolean(sortingAnchorEl)}
+                    anchorEl={sortingAnchorEl}
+                    onClose={onCloseSortingPop}
+                    anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'center',
+                    }}
+                >
+                    <div style={{padding: '10px'}}>
+                    <RadioGroup
+                            className="sorting-radio"
+                            aria-label="sorting"
+                            value={sortingValue}
+                            onChange={(event)=>setSortingValue(event.target.value)}
+                            name="sorting-buttons-group"
+                        >
+                            <FormControlLabel value="default" control={<Radio />} label="Varsayılan" />
+                            <FormControlLabel value="desc" control={<Radio />} label="Fiyata Göre Azalan" />
+                            <FormControlLabel value="asc" control={<Radio />} label="Fiyata Göre Artan" />
+                        </RadioGroup>
+                    </div>
+                </Popover>
             </Menu>
             <Products>
                 <Grid container spacing={3}>
                     {
-                        products.map(product => {
+                        products.sort((a, b) => sortingValue==='default' ? a.id - b.id : (sortingValue==='asc' ? a.price - b.price : b.price - a.price ))
+                        .map(product => {
                             return <Grid key={product.id} item xs={3}>
-                            <ProductItem>
-                                <img src={product.image} alt={`product_${product.id}`} />
-                                <Description>
-                                <span className='name'>{product.name}</span>
-                                <span className='price'>{product.price} TL</span>
-                                <div>
-                                    {
-                                        product.colors.map((color,index) => {
-                                            return <span className='color' key={index} style={{background:color}}></span>
-                                        })
-                                    }
-                                    <span className='colorCount'>{product.colors.length} Renk</span>
-                                </div>
-                                </Description>
-                                <FavoriteButton>
-                                    <img src={product.isFavorited ? '/assets/icons/favorite.svg' : '/assets/icons/favorite_border.svg'} alt='favorite' />
-                                </FavoriteButton>
-                            </ProductItem>
-    
-                        </Grid>
+                                <Product product={product} />
+                            </Grid>
                         })
                     }
                 </Grid>

@@ -6,6 +6,7 @@ const initialState = {
             image: '/assets/products/product_1.png',
             price: 119.99,
             colors: ['#28a9ff','#dfc073','#d45383'],
+            size: 'M',
             isFavorited: false
         },
         {
@@ -13,7 +14,8 @@ const initialState = {
             name: 'LCW BASIC Kapüşonlu Uzun Kollu Fermuarlı Erkek Sweatshirt',
             image: '/assets/products/product_2.png',
             price: 109.99,
-            colors: ['#28a9ff'],
+            colors: ['#080808','#28a9ff'],
+            size: 'L',
             isFavorited: true
         },
         {
@@ -21,7 +23,8 @@ const initialState = {
             name: 'LCW BASIC Kapüşonlu Uzun Kollu Fermuarlı Erkek Sweatshirt',
             image: '/assets/products/product_3.png',
             price: 119.99,
-            colors: ['#28a9ff','#dfc073'],
+            colors: ['#262626'],
+            size: 'S',
             isFavorited: false
         },
         {
@@ -29,7 +32,8 @@ const initialState = {
             name: 'LCW BASIC Bisiklet Yaka Uzun Kollu Fermuarlı Erkek Sweatshirt',
             image: '/assets/products/product_4.png',
             price: 89.99,
-            colors: ['#28a9ff','#dfc073'],
+            colors: ['#352e1c','#28a9ff','#dfc073'],
+            size: 'S',
             isFavorited: false
         },
         {
@@ -37,7 +41,8 @@ const initialState = {
             name: 'LCW CASUAL Kapüşonlu Uzun Kollu Baskılı Erkek Sweatshirt',
             image: '/assets/products/product_5.png',
             price: 119.99,
-            colors: ['#28a9ff','#dfc073'],
+            colors: ['#151515','#28a9ff'],
+            size: 'XL',
             isFavorited: true
         },
         {
@@ -46,6 +51,7 @@ const initialState = {
             image: '/assets/products/product_6.png',
             price: 119.99,
             colors: ['#28a9ff','#dfc073'],
+            size: 'M',
             isFavorited: false
         },
         {
@@ -53,7 +59,8 @@ const initialState = {
             name: 'LCW BASIC Bisiklet Yaka Uzun Kollu Fermuarlı Erkek Sweatshirt',
             image: '/assets/products/product_7.png',
             price: 69.99,
-            colors: ['#28a9ff','#dfc073'],
+            colors: ['#151515','#28a9ff','#dfc073'],
+            size: 'M',
             isFavorited: false
         },
         {
@@ -62,6 +69,7 @@ const initialState = {
             image: '/assets/products/product_8.png',
             price: 109.99,
             colors: ['#28a9ff','#dfc073'],
+            size: 'M',
             isFavorited: false
         },
         {
@@ -70,6 +78,7 @@ const initialState = {
             image: '/assets/products/product_9.png',
             price: 99.99,
             colors: ['#28a9ff','#dfc073'],
+            size: 'L',
             isFavorited: false
         },
         {
@@ -78,6 +87,7 @@ const initialState = {
             image: '/assets/products/product_10.png',
             price: 119.99,
             colors: ['#28a9ff','#dfc073'],
+            size: 'L',
             isFavorited: false
         },
         {
@@ -86,6 +96,7 @@ const initialState = {
             image: '/assets/products/product_11.png',
             price: 99.99,
             colors: ['#28a9ff','#dfc073'],
+            size: 'S',
             isFavorited: false
         },
         {
@@ -94,6 +105,7 @@ const initialState = {
             image: '/assets/products/product_12.png',
             price: 119.99,
             colors: ['#28a9ff','#dfc073'],
+            size: 'L',
             isFavorited: false
         }
     ]

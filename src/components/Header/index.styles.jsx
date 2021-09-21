@@ -23,6 +23,11 @@ export const BottomMenu = styled.ul`
   & > li {
     display: inline;
     margin-right: 5px;
+    padding: 5px;
+    cursor: pointer;
+  }
+  & > li:hover {
+    background-color: #ececec;
   }
   & > li a {
     padding: 0 20px 0 0;
@@ -53,16 +58,28 @@ export const Title = styled.div`
   `;
 
   export const FavoriteButton = styled.div`
+    padding: 5px;
     background: transparent url('assets/icons/favorite_border.svg') 50% 0% no-repeat padding-box;
     margin-left: auto;
     padding-top: 30px;
+    cursor: pointer;
+    &:hover {
+      background-color: #fbfbfb;
+      box-shadow: 0px 3px 6px #00000029;
+    }
   `;
 
   export const BasketButton = styled.div`
+  padding: 5px;
     background: transparent url('assets/icons/shopping_bag.svg') 50% 0% no-repeat padding-box;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 15px;
+    margin-right: 15px;
     padding-top: 30px;
+    cursor: pointer;
+    &:hover {
+      background-color: #fbfbfb;
+      box-shadow: 0px 3px 6px #00000029;
+    }
   `;
 
   export const MenuItem = styled.li`

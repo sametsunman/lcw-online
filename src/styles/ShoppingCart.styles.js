@@ -149,3 +149,28 @@ export const SummaryContainer = styled.div `
     color: #0047ba;
    }
 `
+
+export const ModalBox = styled.div `
+    & > span  {
+      font-family: Rubik;
+      margin: 20px;
+    }
+`
+
+export const ModalButtons = styled.div `
+   display: flex;
+   marginTop: 20px;
+   justify-content: center;
+   & > .button-delete  {
+    margin: 10px;
+    color: #0047ba;
+    text-transform: unset;
+   }
+   & > .button-favorite  {
+    margin: 10px;
+    color: #ffffff;
+    background-color: #0047ba;
+    text-transform: unset;
+   }
+   
+`

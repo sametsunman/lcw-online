@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Wrapper, CartContainer, SummaryContainer } from './../../styles/ShoppingCart.styles';
+import { Wrapper, CartContainer, SummaryContainer, ModalBox, ModalButtons } from './../../styles/ShoppingCart.styles';
 import Toast from './../../components/Common/Toast';
+import { Modal, Button, Box } from '@mui/material/';
 
 const ShoppingCart = () => {
 
@@ -10,6 +11,7 @@ const ShoppingCart = () => {
   const { orderCart, favorites } = useSelector((state) => state);
 
   const [successAlertShow, setSuccessAlertShow] = useState("");
+  const [openModal, setOpenModal] = React.useState(null);
 
   const onLike = (product) => {
     if (favorites.find(x => x.id === product.id)) {
@@ -27,13 +29,27 @@ const ShoppingCart = () => {
     }
     else {
       if (type === "delete" || product.count === 1) {
-        dispatch({ type: 'DELETE_CART', payload: product });
-        setSuccessAlertShow("Ürün sepetten kaldırıldı!");
+        setOpenModal(product);
       }
       else if (type === "desc") {
         dispatch({ type: 'REMOVE_FROM_CART', payload: product });
       }
     }
+  }
+
+  const onDeleteCart = (addFavorite) => {
+
+    if (addFavorite) {
+      dispatch({ type: 'ADD_TO_FAVORITES', payload: openModal });
+      dispatch({ type: 'DELETE_CART', payload: openModal });
+      setSuccessAlertShow("Ürün sepetten kaldırıldı ve favorilere eklendi!");
+    }
+    else {
+      dispatch({ type: 'DELETE_CART', payload: openModal });
+      setSuccessAlertShow("Ürün sepetten kaldırıldı!");
+    }
+
+    setOpenModal(null);
 
   }
 
@@ -86,15 +102,15 @@ const ShoppingCart = () => {
         <span className='summary-title bold'>Sipariş Özeti</span>
         <div className='summary-row'>
           <span>Ürün Toplam</span>
-          <span>{orderCart.length>1 ? orderCart.reduce(function (a, b) { return a.price * 1.27 + b.price * 1.27 }).toFixed(2) : (orderCart.length===1 ? orderCart[0].price*1.27 : 0)} TL</span>
+          <span>{orderCart.length > 1 ? orderCart.reduce(function (a, b) { return a.price * 1.27 + b.price * 1.27 }).toFixed(2) : (orderCart.length === 1 ? orderCart[0].price * 1.27 : 0)} TL</span>
         </div>
         <div className='summary-row bold'>
           <span>İndirimler</span>
-          <span>{orderCart.length>1 ? orderCart.reduce(function (a, b) { return a.price * 0.27 + b.price * 0.27 }).toFixed(2) : (orderCart.length===1 ? orderCart[0].price*0.27 : 0)} TL</span>
+          <span>{orderCart.length > 1 ? orderCart.reduce(function (a, b) { return a.price * 0.27 + b.price * 0.27 }).toFixed(2) : (orderCart.length === 1 ? orderCart[0].price * 0.27 : 0)} TL</span>
         </div>
         <div className='summary-row'>
           <span>Ara Toplam</span>
-          <span>{orderCart.length>1 ? orderCart.reduce(function (a, b) { return a.price + b.price}).toFixed(2) : (orderCart.length===1 ? orderCart[0].price : 0)} TL</span>
+          <span>{orderCart.length > 1 ? orderCart.reduce(function (a, b) { return a.price + b.price }).toFixed(2) : (orderCart.length === 1 ? orderCart[0].price : 0)} TL</span>
         </div>
         <div className='summary-row bold'>
           <span>Kargo Ücreti</span>
@@ -102,11 +118,38 @@ const ShoppingCart = () => {
         </div>
         <div className='summary-row summary-total bold'>
           <span>Genel Toplam</span>
-          <span>{orderCart.length>1 ? orderCart.reduce(function (a, b) { return a.price + b.price}).toFixed(2) : (orderCart.length===1 ? orderCart[0].price : 0)} TL</span>
+          <span>{orderCart.length > 1 ? orderCart.reduce(function (a, b) { return a.price + b.price }).toFixed(2) : (orderCart.length === 1 ? orderCart[0].price : 0)} TL</span>
         </div>
       </SummaryContainer>
+      <Modal
+        open={Boolean(openModal)}
+        onClose={() => setOpenModal(null)}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          width: 400,
+          bgcolor: 'background.paper',
+          border: '1px solid #fff',
+          borderRadius: '10px',
+          boxShadow: 24,
+          p: 4,
+        }}>
+        <ModalBox>
+          <span>Ürünü sepetinizden sildikten sonra favorilerinizde saklamak ister misiniz?</span>
+          <ModalButtons>
+            <Button className="button-delete" variant="outlined" onClick={() => onDeleteCart(false)}>Sil</Button>
+            <Button className="button-favorite" variant="contained" onClick={() => onDeleteCart(true)}>Sil ve Favorilere Ekle</Button>
+          </ModalButtons>
+        </ModalBox>
+        </Box>
+      </Modal>
       <div className="toast-container">
-            <Toast show={successAlertShow!==""} onClose={() => setSuccessAlertShow("")} content={successAlertShow} />
+        <Toast show={successAlertShow !== ""} onClose={() => setSuccessAlertShow("")} content={successAlertShow} />
       </div>
     </Wrapper>
 

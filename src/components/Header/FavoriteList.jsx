@@ -31,50 +31,51 @@ const FavoriteList = () => {
   }
 
   return (
-
+    <>
     <FavoriteButton aria-describedby={favoritePopId} onClick={onClickFavoritePop}>
       Favorilerim
-      <Popover
-        id={favoritePopId}
-        open={Boolean(favoritePopAnchorEl)}
-        anchorEl={favoritePopAnchorEl}
-        onClose={onCloseFavoritePop}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'center',
-        }}
-      >
-        <FavoriteContainer>
-          <span>Favorilerim ({favorites.length} Ürün)</span>
-          {
-            favorites.length > 0 ?
-              favorites.map(product => {
-                return <div className='favorite-item' key={product.id}>
-                  <div className='favorite-image'>
-                    <img src={product.image} alt={`product_${product.id}`} />
-                  </div>
-                  <div className='mid-col'>
-                    <span className='name'>{product.name}</span>
-                    <span className='size'>Beden: <b>{product.size}</b></span>
-                    <span className='color'>Renk: <b>Gri melanj baskı</b></span>
-                  </div>
-                  <div className='end-col'>
-                    <span className='old-price'>{(product.price * 1.23).toFixed(2)} TL</span>
-                    <span className='price'>{product.price} TL</span>
-                    <div className='button' onClick={() => onLike(product)}>
-                      <img src={favorites.find(x => x.id === product.id) ? '/assets/icons/favorite.svg' : '/assets/icons/favorite_border.svg'} alt='favorite' />
-                    </div>
-                  </div>
-                </div>
-              }) :
-              <div className='empty-list'>
-                Favori listeniz boş
-              </div>
-          }
-
-        </FavoriteContainer>
-      </Popover>
     </FavoriteButton>
+     <Popover
+     id={favoritePopId}
+     open={Boolean(favoritePopAnchorEl)}
+     anchorEl={favoritePopAnchorEl}
+     onClose={onCloseFavoritePop}
+     anchorOrigin={{
+       vertical: 'bottom',
+       horizontal: 'center',
+     }}
+   >
+     <FavoriteContainer>
+       <span>Favorilerim ({favorites.length} Ürün)</span>
+       {
+         favorites.length > 0 ?
+           favorites.map(product => {
+             return <div className='favorite-item' key={product.id}>
+               <div className='favorite-image'>
+                 <img src={product.image} alt={`product_${product.id}`} />
+               </div>
+               <div className='mid-col'>
+                 <span className='name'>{product.name}</span>
+                 <span className='size'>Beden: <b>{product.size}</b></span>
+                 <span className='color'>Renk: <b>Gri melanj baskı</b></span>
+               </div>
+               <div className='end-col'>
+                 <span className='old-price'>{(product.price * 1.23).toFixed(2)} TL</span>
+                 <span className='price'>{product.price} TL</span>
+                 <div className='button' onClick={() => onLike(product)}>
+                   <img src={favorites.find(x => x.id === product.id) ? '/assets/icons/favorite.svg' : '/assets/icons/favorite_border.svg'} alt='favorite' />
+                 </div>
+               </div>
+             </div>
+           }) :
+           <div className='empty-list'>
+             Favori listeniz boş
+           </div>
+       }
+
+     </FavoriteContainer>
+   </Popover>
+   </>
 
   );
 };

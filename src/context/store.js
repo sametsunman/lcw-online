@@ -1,13 +1,12 @@
 const initialState = {
     favorites: [],
     orderCart: [],
-    products: [
-        {
+    products: [{
             id: 1,
-            name: 'Kapüşonlu Uzun Kollu Baskılı Kalın Erkek Sweatshirt',
+            name: 'LCW BASIC Kapüşonlu Uzun Kollu Baskılı Kalın Erkek Sweatshirt',
             image: '/assets/products/product_1.png',
             price: 119.99,
-            colors: ['#28a9ff','#dfc073','#d45383'],
+            colors: ['#28a9ff', '#dfc073', '#d45383'],
             size: 'M'
         },
         {
@@ -15,7 +14,7 @@ const initialState = {
             name: 'LCW BASIC Kapüşonlu Uzun Kollu Fermuarlı Erkek Sweatshirt',
             image: '/assets/products/product_2.png',
             price: 109.99,
-            colors: ['#080808','#28a9ff'],
+            colors: ['#080808', '#28a9ff'],
             size: 'L'
         },
         {
@@ -31,7 +30,7 @@ const initialState = {
             name: 'LCW BASIC Bisiklet Yaka Uzun Kollu Fermuarlı Erkek Sweatshirt',
             image: '/assets/products/product_4.png',
             price: 89.99,
-            colors: ['#352e1c','#28a9ff','#dfc073'],
+            colors: ['#352e1c', '#28a9ff', '#dfc073'],
             size: 'S'
         },
         {
@@ -39,7 +38,7 @@ const initialState = {
             name: 'LCW CASUAL Kapüşonlu Uzun Kollu Baskılı Erkek Sweatshirt',
             image: '/assets/products/product_5.png',
             price: 119.99,
-            colors: ['#151515','#28a9ff'],
+            colors: ['#151515', '#28a9ff'],
             size: 'XL'
         },
         {
@@ -47,7 +46,7 @@ const initialState = {
             name: 'LCW CASUAL Kapüşonlu Uzun Kollu Baskılı Erkek Sweatshirt',
             image: '/assets/products/product_6.png',
             price: 119.99,
-            colors: ['#28a9ff','#dfc073'],
+            colors: ['#28a9ff', '#dfc073'],
             size: 'M'
         },
         {
@@ -55,7 +54,7 @@ const initialState = {
             name: 'LCW BASIC Bisiklet Yaka Uzun Kollu Fermuarlı Erkek Sweatshirt',
             image: '/assets/products/product_7.png',
             price: 69.99,
-            colors: ['#151515','#28a9ff','#dfc073'],
+            colors: ['#151515', '#28a9ff', '#dfc073'],
             size: 'M'
         },
         {
@@ -63,31 +62,31 @@ const initialState = {
             name: 'LCW CASUAL Kapüşonlu Uzun Kollu Fermuarlı Erkek Sweatshirt',
             image: '/assets/products/product_8.png',
             price: 109.99,
-            colors: ['#28a9ff','#dfc073'],
+            colors: ['#28a9ff', '#dfc073'],
             size: 'M'
         },
         {
             id: 9,
-            name: 'Atatürk Baskılı Kapüşonlu Sweatshirt',
+            name: 'LCW BASIC Atatürk Baskılı Kapüşonlu Sweatshirt',
             image: '/assets/products/product_9.png',
             price: 99.99,
-            colors: ['#28a9ff','#dfc073'],
+            colors: ['#28a9ff', '#dfc073'],
             size: 'L'
         },
         {
             id: 10,
-            name: 'Kapüşonlu Uzun Kollu Baskılı Kalın Erkek Sweatshirt',
+            name: 'LCW BASIC Kapüşonlu Uzun Kollu Baskılı Kalın Erkek Sweatshirt',
             image: '/assets/products/product_10.png',
             price: 119.99,
-            colors: ['#28a9ff','#dfc073'],
+            colors: ['#28a9ff', '#dfc073'],
             size: 'L'
         },
         {
             id: 11,
-            name: 'Kapüşonlu Baskılı İnce Sweatshirt Baba Oğul Kombini',
+            name: 'LCW BASIC Kapüşonlu Baskılı İnce Sweatshirt Baba Oğul Kombini',
             image: '/assets/products/product_11.png',
             price: 99.99,
-            colors: ['#28a9ff','#dfc073'],
+            colors: ['#28a9ff', '#dfc073'],
             size: 'S'
         },
         {
@@ -95,7 +94,7 @@ const initialState = {
             name: 'Scooby Doo Baskılı Sweatshirt',
             image: '/assets/products/product_12.png',
             price: 119.99,
-            colors: ['#28a9ff','#dfc073'],
+            colors: ['#28a9ff', '#dfc073'],
             size: 'L'
         }
     ]

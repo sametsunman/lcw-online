@@ -1,10 +1,11 @@
 import styled from 'styled-components';
+import device from '../../utils/Breakpoints'
 
 export const Wrapper = styled.div`
   position: fixed;
   width: 100%;
-  height: 155px;
-  padding-top: 35px;
+  height: 130px;
+  padding-top: 20px;
   padding-inline: 44px;
   background-color: #ffffff;
   z-index: 600;
@@ -12,13 +13,23 @@ export const Wrapper = styled.div`
   & > a {
     text-decoration: none;
   }
+
+  @media ${device.desktop} { 
+    height: 155px;
+    padding-top: 35px;
+  }
+
 `;
 
 export const TopMenu = styled.ul`
   display: flex;
+  margin-bottom: 0px;
   & >  a {
     text-decoration: none;
     color: #61666A
+  }
+  @media ${device.desktop} { 
+    margin-bottom: 1rem;
   }
 `
 
@@ -56,13 +67,18 @@ export const BottomMenu = styled.ul`
 
 export const Title = styled.div`
   & > a > img {
+    width: 250px;
+    height: 32px;
+    
+  @media ${device.desktop} { 
     width: 300px;
     height: 42px;
+  }
   }
   `;
 
   export const FavoriteButton = styled.div`
-    padding: 5px;
+    padding: 3px;
     background: transparent url('assets/icons/favorite_border.svg') 50% 0% no-repeat padding-box;
     margin-left: auto;
     padding-top: 30px;
@@ -70,6 +86,10 @@ export const Title = styled.div`
     &:hover {
       background-color: #fbfbfb;
       box-shadow: 0px 3px 6px #00000029;
+    }
+
+    @media ${device.desktop} { 
+      padding: 5px;
     }
     
   `;
@@ -145,7 +165,7 @@ export const Title = styled.div`
 
 
   export const BasketButton = styled.div`
-  padding: 5px;
+  padding: 3px;
     background: transparent url('assets/icons/shopping_bag.svg') 50% 0% no-repeat padding-box;
     margin-left: 15px;
     margin-right: 15px;
@@ -155,12 +175,20 @@ export const Title = styled.div`
       background-color: #fbfbfb;
       box-shadow: 0px 3px 6px #00000029;
     }
+
+    @media ${device.desktop} { 
+      padding: 5px;
+    }
   `;
 
   export const MenuItem = styled.li`
   text-transform: uppercase;
   padding-inline: 5px;
-  font-size: 26px;
+  font-size: 20px;
   color: #61666A;
+
+  @media ${device.desktop} { 
+    font-size: 26px;
+  }
 `;
   

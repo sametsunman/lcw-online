@@ -102,11 +102,11 @@ const ShoppingCart = () => {
         <span className='summary-title bold'>Sipariş Özeti</span>
         <div className='summary-row'>
           <span>Ürün Toplam</span>
-          <span>{orderCart.length > 1 ? orderCart.reduce(function (a, b) { return a.price * 1.27 + b.price * 1.27 }).toFixed(2) : (orderCart.length === 1 ? orderCart[0].price * 1.27 : 0)} TL</span>
+          <span>{orderCart.length > 1 ? orderCart.reduce(function (a, b) { return a.price * 1.27 + b.price * 1.27 }).toFixed(2) : (orderCart.length === 1 ? (orderCart[0].price * 1.27).toFixed(2) : 0)} TL</span>
         </div>
         <div className='summary-row bold'>
           <span>İndirimler</span>
-          <span>{orderCart.length > 1 ? orderCart.reduce(function (a, b) { return a.price * 0.27 + b.price * 0.27 }).toFixed(2) : (orderCart.length === 1 ? orderCart[0].price * 0.27 : 0)} TL</span>
+          <span>{orderCart.length > 1 ? orderCart.reduce(function (a, b) { return a.price * 0.27 + b.price * 0.27 }).toFixed(2) : (orderCart.length === 1 ? (orderCart[0].price * 0.27).toFixed(2) : 0)} TL</span>
         </div>
         <div className='summary-row'>
           <span>Ara Toplam</span>

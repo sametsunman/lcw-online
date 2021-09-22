@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import device from '../../utils/Breakpoints'
 
 export const Wrapper = styled.div`
   bottom: 0;
@@ -28,7 +29,10 @@ export const LinkBar = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  font-size: 20px;
+  font-size: 16px;
+  @media ${device.desktop} { 
+    font-size: 20px;
+  }
   & > ul {
     list-style-type: none;
     margin-left: 110px;
@@ -43,15 +47,22 @@ export const LinkBar = styled.div`
   cursor: pointer;
   }
   & > ul > li.button {
-    width: 446px;
-    height: 60px;
+    width: 336px;
+    height: 50px;
     padding: 8px;
     border: 1px solid #0047ba;
     border-radius: 8px;
     color: #0047BA;
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
+
+    @media ${device.desktop} { 
+      font-size: 18px;
+      width: 446px;
+      height: 60px;
+      padding: 8px;
+    }
 
     }
 `;

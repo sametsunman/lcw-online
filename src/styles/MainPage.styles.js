@@ -1,11 +1,18 @@
 import styled from 'styled-components';
+import device from '../utils/Breakpoints'
 
-export const Wrapper = styled.div`
-  padding: 100px;
+export const Wrapper = styled.div `
+  
+  padding: 60px;
+  padding-top: 30px;
   color: #61666a;
+
+  @media ${device.desktop} { 
+    padding:  100px;
+  }
 `;
 
-export const Breadcrumb = styled.ul`
+export const Breadcrumb = styled.ul `
 list-style-type: none;
 & > li {
   display: inline;
@@ -19,12 +26,16 @@ list-style-type: none;
 }
 `;
 
-export const Title = styled.span`
-  font-size: 28px;
+export const Title = styled.span `
+  font-size: 24px;
   padding-inline: 20px;
+
+  @media ${device.desktop} { 
+    font-size: 28px;
+  }
 `;
 
-export const Menu = styled.div`
+export const Menu = styled.div `
 display: flex;
 justify-content: space-between;
 padding: 20px;
@@ -43,11 +54,11 @@ padding: 20px;
 }
 `;
 
-export const Products = styled.div`
+export const Products = styled.div `
   padding: 10px;
 `;
 
-export const ProductItem = styled.div`
+export const ProductItem = styled.div `
   position: relative;
   display: flex;
   flex-direction: column;
@@ -65,15 +76,21 @@ export const ProductItem = styled.div`
   }
 `;
 
-export const Description = styled.div`
+export const Description = styled.div `
 display: flex;
 flex-direction: column;
   padding: 15px;
   & > span.name {
-    font-size: 20px;
+    font-size: 18px;
+    @media ${device.desktop} { 
+      font-size: 20px;
+    }
   }
   & > span.price {
-    font-size: 24px;
+    font-size: 22px;
+    @media ${device.desktop} { 
+      font-size: 24px;
+    }
     color: #0047BA;
     font-weight: 600;
   }
@@ -95,7 +112,7 @@ flex-direction: column;
   }
 `;
 
-export const FavoriteButton = styled.div`
+export const FavoriteButton = styled.div `
   position: absolute;
   top: 15px;
   right: 15px;
@@ -110,7 +127,7 @@ export const FavoriteButton = styled.div`
   cursor: pointer;
 `;
 
-export const AddToCart = styled.div`
+export const AddToCart = styled.div `
   position: absolute;
   bottom: 20px;
   right: 15px;

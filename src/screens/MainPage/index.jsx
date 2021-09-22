@@ -27,7 +27,7 @@ const MainPage = () => {
                     {
                         products.sort((a, b) => sortingValue==='default' ? a.id - b.id : (sortingValue==='asc' ? a.price - b.price : b.price - a.price ))
                         .map(product => {
-                            return <Grid key={product.id} item xs={3}>
+                            return <Grid key={product.id} item xs={6} lg={3}>
                                 <Product product={product} />
                             </Grid>
                         })

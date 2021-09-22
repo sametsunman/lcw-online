@@ -1,12 +1,17 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div `
   padding-inline: 100px;
   padding-bottom: 100px;
   display: flex;
+  & > .toast-container {
+    position: fixed;
+    top: 200px;
+    right: 50px;
+  }
 `
 
-export const CartContainer = styled.div`
+export const CartContainer = styled.div `
 font-family: Rubik;
   padding: 20px;
   flex: 4;
@@ -119,7 +124,7 @@ font-family: Rubik;
 
 `;
 
-export const SummaryContainer = styled.div`
+export const SummaryContainer = styled.div `
   font-family: Rubik;
   background-color: #F8F8F8;
   height: 327px;

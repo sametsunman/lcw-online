@@ -2,9 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import FavoriteList from './FavoriteList';
 import { Wrapper, Title, TopMenu, BottomMenu, MenuItem, BasketButton } from './index.styles';
-
+import { Badge } from '@mui/material/';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
+
+  const { orderCart } = useSelector((state) => state);
 
   return (
     <Wrapper>
@@ -16,8 +19,10 @@ const Header = () => {
         </Title>
         <FavoriteList  />
         <Link to="/shopping-cart">
-          <BasketButton>
+        <BasketButton>
+        <Badge badgeContent={orderCart.length} color="error">
             Sepetim
+            </Badge>
           </BasketButton>
         </Link>
       </TopMenu>

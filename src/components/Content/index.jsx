@@ -9,8 +9,8 @@ const Content = () => {
   return (
     <Wrapper>
       <Switch>
-      {routes.map((route) =>
-            <Route exact={route.exact} path={route.path}>
+      {routes.map((route, index) =>
+            <Route key={index} exact={route.exact} path={route.path}>
               {route.component()}
             </Route>
         )}

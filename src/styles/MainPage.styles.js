@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  padding: 50px;
+  padding: 100px;
   color: #61666a;
 `;
 
@@ -57,6 +57,11 @@ export const ProductItem = styled.div`
   }
   & > div:hover > .add-to-cart {
     display: unset;
+  }
+  & > .toast-container {
+    position: fixed;
+    top: 200px;
+    right: 50px;
   }
 `;
 

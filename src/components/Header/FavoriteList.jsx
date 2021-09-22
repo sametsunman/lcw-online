@@ -49,7 +49,7 @@ const FavoriteList = () => {
           {
             favorites.length > 0 ?
               favorites.map(product => {
-                return <div className='favorite-item'>
+                return <div className='favorite-item' key={product.id}>
                   <div className='favorite-image'>
                     <img src={product.image} alt={`product_${product.id}`} />
                   </div>

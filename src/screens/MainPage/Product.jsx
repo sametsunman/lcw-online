@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {useDispatch,useSelector} from 'react-redux';
 import { ProductItem, Description, FavoriteButton, AddToCart } from '../../styles/MainPage.styles';
 import { Button } from '@mui/material/';
-import Alert from './../../components/Common/Alert';
+import Toast from './../../components/Common/Toast';
 
 
 const Product = ({ product }) => {
@@ -50,7 +50,9 @@ const Product = ({ product }) => {
                     <Button variant="outlined" onClick={()=>onBasket()}><img src='/assets/icons/shopping_bag.svg' alt='add_to_cart' /> Sepete Ekle</Button>
                 </AddToCart>
             </div>
-            <Alert variant="info" show={successAlertShow!==""} onClose={() => setSuccessAlertShow("")} content={successAlertShow} />
+            <div className="toast-container">
+            <Toast show={successAlertShow!==""} onClose={() => setSuccessAlertShow("")} content={successAlertShow} />
+            </div>
         </ProductItem>
 
     )

@@ -53,6 +53,15 @@ const ShoppingCart = () => {
 
   }
 
+  const calculatePrice = (orderCart, factor) => {
+    if(orderCart.length > 1 )
+      return orderCart.reduce(function (a, b) { return a.price*a.count * factor + b.price*b.count * factor }).toFixed(2)
+    else if(orderCart.length === 1)
+      return (orderCart[0].price*orderCart[0].count * factor).toFixed(2) 
+    else 
+      return 0;
+  }
+
   return (
     <Wrapper>
       <CartContainer>
@@ -102,15 +111,15 @@ const ShoppingCart = () => {
         <span className='summary-title bold'>Sipariş Özeti</span>
         <div className='summary-row'>
           <span>Ürün Toplam</span>
-          <span>{orderCart.length > 1 ? orderCart.reduce(function (a, b) { return a.price * 1.27 + b.price * 1.27 }).toFixed(2) : (orderCart.length === 1 ? (orderCart[0].price * 1.27).toFixed(2) : 0)} TL</span>
+          <span>{calculatePrice(orderCart,1.27)} TL</span>
         </div>
         <div className='summary-row bold'>
           <span>İndirimler</span>
-          <span>{orderCart.length > 1 ? orderCart.reduce(function (a, b) { return a.price * 0.27 + b.price * 0.27 }).toFixed(2) : (orderCart.length === 1 ? (orderCart[0].price * 0.27).toFixed(2) : 0)} TL</span>
+          <span>{calculatePrice(orderCart,0.27)} TL</span>
         </div>
         <div className='summary-row'>
           <span>Ara Toplam</span>
-          <span>{orderCart.length > 1 ? orderCart.reduce(function (a, b) { return a.price + b.price }).toFixed(2) : (orderCart.length === 1 ? orderCart[0].price : 0)} TL</span>
+          <span>{calculatePrice(orderCart,1)} TL</span>
         </div>
         <div className='summary-row bold'>
           <span>Kargo Ücreti</span>
@@ -118,7 +127,7 @@ const ShoppingCart = () => {
         </div>
         <div className='summary-row summary-total bold'>
           <span>Genel Toplam</span>
-          <span>{orderCart.length > 1 ? orderCart.reduce(function (a, b) { return a.price + b.price }).toFixed(2) : (orderCart.length === 1 ? orderCart[0].price : 0)} TL</span>
+          <span>{calculatePrice(orderCart,1)} TL</span>
         </div>
       </SummaryContainer>
       <Modal

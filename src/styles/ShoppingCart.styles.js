@@ -24,8 +24,9 @@ font-family: Rubik;
       font-weight: 600;
       padding: 5px;
     }
-    & > .top > .back-link {
-      color: #0047ba
+    & > .top > .back-link > a {
+      color: #0047ba;
+      text-decoration: none;
     }
     & > .cart-item {
       display: flex;

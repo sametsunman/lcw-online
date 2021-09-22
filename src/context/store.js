@@ -1,6 +1,6 @@
 const initialState = {
     favorites: [],
-    orderBasket: [],
+    orderCart: [],
     products: [
         {
             id: 1,

@@ -10,13 +10,15 @@ function reducer(state, action) {
           : state;
       case 'REMOVE_FROM_FAVORITES':
         return { ...state, favorites: state.favorites.filter((fav) => fav.id !== action.payload.id) }
-      case 'ADD_TO_BASKET':
-        let basketIndex = state.orderBasket.findIndex((order) => order.id === action.payload.id);
+      case 'ADD_TO_CART':
+        let basketIndex = state.orderCart.findIndex((order) => order.id === action.payload.id);
         return basketIndex === -1
-          ? { ...state, orderBasket: [...state.orderBasket, action.payload] }
+          ? { ...state, orderCart: [...state.orderCart, action.payload] }
           : state;
-      case 'REMOVE_FROM_BASKET':
-        return { ...state, orderBasket: state.orderBasket.filter((order) => order.id !== action.payload.id) }
+      case 'DELETE_CART':
+        return { ...state, orderCart: state.orderCart.filter((order) => order.id !== action.payload.id) }
+        case 'REMOVE_FROM_CART':
+          return { ...state, orderCart: state.orderCart.filter((order) => order.id !== action.payload.id) }
     default:
       return state;
   }

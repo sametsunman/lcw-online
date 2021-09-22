@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {useDispatch,useSelector} from 'react-redux';
 import {Wrapper, CartContainer,SummaryContainer} from './../../styles/ShoppingCart.styles';
 
 const ShoppingCart = () => {
 
     const dispatch = useDispatch();
-    const { orderBasket, favorites } = useSelector((state) => state);
+    const { orderCart, favorites } = useSelector((state) => state);
 
     const onLike = (product) => {
         if(favorites.find(x=>x.id===product.id))
@@ -19,9 +20,9 @@ const ShoppingCart = () => {
       }
     
       const onDelete = (product) => {
-        if(orderBasket.find(x=>x.id===product.id))
+        if(orderCart.find(x=>x.id===product.id))
         {
-          dispatch({type: 'REMOVE_FROM_BASKET', payload: product});
+          dispatch({type: 'REMOVE_FROM_CART', payload: product});
 
         }
         
@@ -31,13 +32,13 @@ const ShoppingCart = () => {
         <Wrapper>
         <CartContainer>
             <div className='top'>
-            <span>Sepetim ({orderBasket.length} Ürün)</span>
-            <span className='back-link'>&lt; Alışverişe devam et</span>
+            <span>Sepetim ({orderCart.length} Ürün)</span>
+            <span className='back-link'><Link to="/">&lt; Alışverişe devam et</Link></span>
             </div>
           
           {
-            orderBasket.length > 0 ?
-              orderBasket.map(product => {
+            orderCart.length > 0 ?
+              orderCart.map(product => {
                 return <div className='cart-item' key={product.id}>
                   <div className='cart-image'>
                     <img src={product.image} alt={`product_${product.id}`} />
@@ -76,15 +77,15 @@ const ShoppingCart = () => {
           <span className='summary-title bold'>Sipariş Özeti</span>
           <div className='summary-row'>
               <span>Ürün Toplam</span>
-              <span>5 TL</span>
+              <span>{orderCart.reduce(function(a, b){return a.price*1.27+b.price*1.27}).toFixed(2)} TL</span>
           </div>
           <div className='summary-row bold'>
               <span>İndirimler</span>
-              <span>5 TL</span>
+              <span>{orderCart.reduce(function(a, b){return a.price*0.27+b.price*0.27}).toFixed(2)} TL</span>
           </div>
           <div className='summary-row'>
               <span>Ara Toplam</span>
-              <span>5 TL</span>
+              <span>{orderCart.reduce(function(a, b){return a.price+b.price})} TL</span>
           </div>
           <div className='summary-row bold'>
               <span>Kargo Ücreti</span>
@@ -92,7 +93,7 @@ const ShoppingCart = () => {
           </div>
           <div className='summary-row summary-total bold'>
               <span>Genel Toplam</span>
-              <span>5 TL</span>
+              <span>{orderCart.reduce(function(a, b){return a.price+b.price})} TL</span>
           </div>
         </SummaryContainer>
         </Wrapper>

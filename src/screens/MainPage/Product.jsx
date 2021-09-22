@@ -23,7 +23,7 @@ const Product = ({ product }) => {
       }
     
       const onBasket = () => {
-          dispatch({type: 'ADD_TO_BASKET', payload: product});
+          dispatch({type: 'ADD_TO_CART', payload: product});
           setSuccessAlertShow("Ürün sepete eklendi!");
       }
 

@@ -28,3 +28,6 @@ Projeyi lokalde çalıştırabilmek için:
 <div align="center">
   <img width="600" src="/screenshot.png">
 </div>
+<div align="center">
+  <img width="600" src="/screenshot2.png">
+</div>

@@ -16,6 +16,10 @@ export const Wrapper = styled.div`
 
 export const TopMenu = styled.ul`
   display: flex;
+  & >  a {
+    text-decoration: none;
+    color: #61666A
+  }
 `
 
 export const BottomMenu = styled.ul`
@@ -67,7 +71,78 @@ export const Title = styled.div`
       background-color: #fbfbfb;
       box-shadow: 0px 3px 6px #00000029;
     }
+    
   `;
+
+  export const FavoriteContainer = styled.div`
+  font-family: Rubik;
+  padding: 20px;
+  width: 740px;
+    & > .empty-list {
+      padding: 10px;
+      font-size: 20px;
+    }
+    & > span {
+      font-size: 24px;
+      font-weight: 600;
+      padding: 5px;
+    }
+    & > .favorite-item {
+      display: flex;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid #ececec;
+      & > .favorite-image > img {
+        width: 100px;
+        height: 140px;
+        object-fit: cover;
+      }
+      & > .mid-col {
+        display: flex;
+        flex-direction: column;
+        padding-inline: 10px;
+      }
+      & > .mid-col > .name {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+      & > .mid-col > .size {
+        font-size: 22px
+      }
+      & > .mid-col > .color {
+        font-size: 22px
+      }
+      & > .end-col {
+        display: flex;
+        flex-direction: column;
+        padding-inline: 10px;
+        min-width: 170px;
+      }
+      & > .end-col > .old-price {
+        font-size: 24px;
+        text-decoration: line-through;
+      }
+      & > .end-col > .price {
+        color: #0047ba;
+        font-size: 32px;
+        font-weight: 700;
+      }
+      & > .end-col > .button {
+        width: 48px;
+        height: 48px;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: 0px 3px 6px #00000029;
+        border-radius: 8px;
+        display: grid;
+        justify-items: center;
+        align-content: center;
+        cursor: pointer;
+      }
+    }
+
+  
+`;
+
 
   export const BasketButton = styled.div`
   padding: 5px;

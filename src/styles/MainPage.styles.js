@@ -32,7 +32,7 @@ padding: 20px;
   font-size: 18px;
   font-weight: 600
 }
-& > span.sort {
+& > div > span.sort {
   font-size: 22px;
   font-weight: 600;
   cursor: pointer;

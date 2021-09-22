@@ -4,7 +4,6 @@ export const Wrapper = styled.div`
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 0.5em 1em;
   background-color: #ffffff;
   color: #61666a;
 `;

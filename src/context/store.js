@@ -1,4 +1,6 @@
 const initialState = {
+    favorites: [],
+    orderBasket: [],
     products: [
         {
             id: 1,
@@ -6,8 +8,7 @@ const initialState = {
             image: '/assets/products/product_1.png',
             price: 119.99,
             colors: ['#28a9ff','#dfc073','#d45383'],
-            size: 'M',
-            isFavorited: false
+            size: 'M'
         },
         {
             id: 2,
@@ -15,8 +16,7 @@ const initialState = {
             image: '/assets/products/product_2.png',
             price: 109.99,
             colors: ['#080808','#28a9ff'],
-            size: 'L',
-            isFavorited: true
+            size: 'L'
         },
         {
             id: 3,
@@ -24,8 +24,7 @@ const initialState = {
             image: '/assets/products/product_3.png',
             price: 119.99,
             colors: ['#262626'],
-            size: 'S',
-            isFavorited: false
+            size: 'S'
         },
         {
             id: 4,
@@ -33,8 +32,7 @@ const initialState = {
             image: '/assets/products/product_4.png',
             price: 89.99,
             colors: ['#352e1c','#28a9ff','#dfc073'],
-            size: 'S',
-            isFavorited: false
+            size: 'S'
         },
         {
             id: 5,
@@ -42,8 +40,7 @@ const initialState = {
             image: '/assets/products/product_5.png',
             price: 119.99,
             colors: ['#151515','#28a9ff'],
-            size: 'XL',
-            isFavorited: true
+            size: 'XL'
         },
         {
             id: 6,
@@ -51,8 +48,7 @@ const initialState = {
             image: '/assets/products/product_6.png',
             price: 119.99,
             colors: ['#28a9ff','#dfc073'],
-            size: 'M',
-            isFavorited: false
+            size: 'M'
         },
         {
             id: 7,
@@ -60,8 +56,7 @@ const initialState = {
             image: '/assets/products/product_7.png',
             price: 69.99,
             colors: ['#151515','#28a9ff','#dfc073'],
-            size: 'M',
-            isFavorited: false
+            size: 'M'
         },
         {
             id: 8,
@@ -69,8 +64,7 @@ const initialState = {
             image: '/assets/products/product_8.png',
             price: 109.99,
             colors: ['#28a9ff','#dfc073'],
-            size: 'M',
-            isFavorited: false
+            size: 'M'
         },
         {
             id: 9,
@@ -78,8 +72,7 @@ const initialState = {
             image: '/assets/products/product_9.png',
             price: 99.99,
             colors: ['#28a9ff','#dfc073'],
-            size: 'L',
-            isFavorited: false
+            size: 'L'
         },
         {
             id: 10,
@@ -87,8 +80,7 @@ const initialState = {
             image: '/assets/products/product_10.png',
             price: 119.99,
             colors: ['#28a9ff','#dfc073'],
-            size: 'L',
-            isFavorited: false
+            size: 'L'
         },
         {
             id: 11,
@@ -96,8 +88,7 @@ const initialState = {
             image: '/assets/products/product_11.png',
             price: 99.99,
             colors: ['#28a9ff','#dfc073'],
-            size: 'S',
-            isFavorited: false
+            size: 'S'
         },
         {
             id: 12,
@@ -105,8 +96,7 @@ const initialState = {
             image: '/assets/products/product_12.png',
             price: 119.99,
             colors: ['#28a9ff','#dfc073'],
-            size: 'L',
-            isFavorited: false
+            size: 'L'
         }
     ]
 };

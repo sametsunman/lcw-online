@@ -1,26 +1,28 @@
 function reducer(state, action) {
 
-    switch (action.type) {
-      case 'SET_STATE_FROM_STORAGE':
-        return action.payload ? action.payload : state;
-      case 'CREATE_NEW_LINK':
-          let newLink = action.payload;
-          newLink.id = state.products.length> 0 ? (state.products[state.products.length - 1].id+1) : 1;
-          newLink.updatedDate = new Date ();
-          newLink.vote = 0;
-         return { ...state, products: [...state.products, newLink] }
-      case 'REMOVE_LINK':
-        return { ...state, products: state.products.filter((link) => link.id !== action.payload) }
-      case 'VOTE_LINK':
-          let votedLink = state.products.find((link) => link.id === action.payload.id);
-          votedLink.vote=votedLink.vote+action.payload.vote;
-          votedLink.updatedDate= new Date();
-          return { ...state, products: state.products.map(link => link.id === action.payload.id ? votedLink : link)};
-      default:
-        return state;
-    }
-  
-
+  switch (action.type) {
+    case 'SET_STATE_FROM_STORAGE':
+      return action.payload ? action.payload : state;
+      case 'ADD_TO_FAVORITES':
+        let favIndex = state.favorites.findIndex((fav) => fav.id === action.payload.id);
+        return favIndex === -1
+          ? { ...state, favorites: [...state.favorites, action.payload] }
+          : state;
+      case 'REMOVE_FROM_FAVORITES':
+        return { ...state, favorites: state.favorites.filter((fav) => fav.id !== action.payload.id) }
+      case 'ADD_TO_BASKET':
+        let basketIndex = state.orderBasket.findIndex((order) => order.id === action.payload.id);
+        return basketIndex === -1
+          ? { ...state, orderBasket: [...state.orderBasket, action.payload] }
+          : state;
+      case 'REMOVE_FROM_BASKET':
+        return { ...state, orderBasket: state.orderBasket.filter((order) => order.id !== action.payload.id) }
+    default:
+      return state;
   }
-  
-  export default reducer;
+
+
+}
+
+export default reducer;
+

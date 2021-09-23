@@ -19,8 +19,8 @@ Projeyi lokalde çalıştırabilmek için:
 
 * Repo'yu klonlayın `git clone https://github.com/sametsunman/lcw-online.git`
 * Komutu çalıştırın `cd lcw-online`
-* Komutu çalıştırın `npm install` veya `yarn install`
-* Komutu çalıştırın `npm start` veya `yarn install` 
+* Komutu çalıştırın `npm install` veya `yarn`
+* Komutu çalıştırın `npm start` veya `yarn start` 
 
 
 ### Ekran Görüntüleri
